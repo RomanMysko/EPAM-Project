@@ -1,0 +1,3 @@
+django-admin startproject NAME Створення проекту
+python3 manage.py runserver Запуск сервера на локальному порті
+

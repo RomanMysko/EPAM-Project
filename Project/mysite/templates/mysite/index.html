@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Spacial Stout</title>
+	<link rel="stylesheet" href='{% static "mysite/lib.css" %}'>
+	<link rel="shortcut icon" href="#">
+</head>
+<body>
+	<header>
+				<nav class="navigate">
+					<div class="logo">
+						<a href="index.html"><img src='{% static "mysite/images/logo.png" %}'></a>
+					</div>
+					<div class="navig">
+						<a href="" class="na">Blogs</a>
+						<a href="" class="na">Pages</a>
+						<a href="" class="na">Features</a>
+						<a href="" class="na">Components</a>
+						<a href="" class="na">Shop</a>
+						<a href="" class="bord">Theme Docs</a>
+					</div>
+				</nav>
+				<h1>THE SPACIAL STOUT</h1>
+				<h3>COMFORT BEER & GRILL</h3>
+			<div class="contain">
+				<h4 class="floatl">56 AVENUE SOUTH, IRELAND 66490</h4>
+				<h4 class="floatr">BREAKFAST & DINNER</h4>
+			</div>
+
+	</header>
+	<main>
+		<div class="intro">
+			<h2>COMFORT MEETS FRIENDSHIP</h2>
+			<p id="texts">Spacial has both a web app and an android app to make your website easy and always available. It offers you all the designs in collaboration with some smart people. Your projects will look great everywhere you go. Use new components that come included for everyone.</p>
+		</div>
+		<div class="photos">
+			<section>
+			<div class="foto">
+				<div class="text">
+					<strong>Breakfast & Lunch<br></strong>
+					<span><strong>AVAILABLE ALL DAY</strong></span>
+				</div>
+			</div>
+			<div class="foto2">
+				<div class="text">
+					<strong>Homemade coffee<br></strong>
+					<span><strong>AVAILABLE MORNINGS</strong></span>
+				</div>
+			</div>
+			<div class="foto3">
+				<div class="text">
+					<strong>Seasoned Healthy Juice<br></strong>
+					<span><strong>AVAILABLE ALL DAY</strong></span>
+				</div>
+			</div>
+			<div class="foto4">
+				<div class="text">
+					<strong>Fresh vegetables<br></strong>
+					<span><strong>AVAILABLE ALL DAY</strong></span>
+				</div>
+			</div>
+		</section>
+		</div>
+		<div id="spice"></div>
+		<div class="post">
+			<h3 id="gg">FULL OF GREAT MOMENTS</h3>
+			<div class="first">
+				<img src='{% static "mysite/images/image1.jpg" %}' class="image1">
+				<img src='{% static "mysite/images/image2.jpg" %}' class="image1">
+			</div>
+			<div class="second">
+				<img src='{% static "mysite/images/image3.jpg" %}' class="image2">
+			</div>
+			<div class='last'>
+				<img src='{% static "mysite/images/image4.jpg" %}' class="image3">
+				<img src='{% static "mysite/images/image5.jpg" %}' class="image3">
+			</div>
+		</div>
+		<div class="reservation">
+		<h1>MAKE A RESERVATION</h1>
+		
+		<div class="info">
+			<span class="info1">START DAY:</span>
+			<span class="info2">TIME</span>
+			<span class="info3">PARTY SIZE</span>
+			</div>
+
+			<form class="reser" action="{% url 'home' %}" onsubmit="return form_test()" method = "post" name="reg_form" >
+				{% csrf_token %}
+				<div id="res_form">
+				<input type="date" id="start" name="dat" required="required">
+				<script>
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0!
+				var yyyy = today.getFullYear();
+ 				if(dd<10){
+        		dd='0'+dd
+    			}
+    			if(mm<10){
+       			mm='0'+mm
+    			}
+
+				today = yyyy+'-'+mm+'-'+dd;
+				if (mm != 12){
+				lastday = yyyy+'-'+0+(parseInt(mm)+1).toString()+'-'+dd;
+				}
+				else{
+				lastday = yyyy+'-'+ 1 +'-'+dd;
+				}
+
+				document.getElementById("start").setAttribute("min", today);
+				document.getElementById("start").setAttribute("max", lastday);
+				</script>
+
+       			<input type="time" name="tim"
+       				min="10:00" max="22:00" required="required" style = "margin-left: 4%;">
+       			<input type="number" min="1" max="5" name = "party" required="required" style = "margin-left: 4%;">
+       				<p></p>
+       			<span class="info1">YOUR NAME:</span>
+				<span class="info4">YOUR EMAIL</span>
+				<span class="info3">YOUR PHONE<br></span>
+				<input type="text" name = "name" required="required">
+       			<input type="text" name = "email" required="required">
+       			<input type="text" name = "phone" required="required">
+				</div>
+				<h2 style="text-align:center;">If you want,you can preorder meal</h2>
+				<h2 class="men" style="text-align:center;">from OUR MENU</h2>
+		<div class="Menu">
+				<div class="start">
+					<h3 class="right">To start</h3>
+					<p class="txt">$7 - Guacamole & chips <input type="number" min="0" max="10" name = "Guacamole & chips" value="0" required="required"></p>
+
+					<p class="txt">$9 - Chicken wings <input type="number" min="0" max="10" name = "Chicken wings" value="0" required="required"></p>
+
+					<p class="txt">$7 - Garlic noodles <input type="number" min="0" max="10" name = "Garlic noodles" value="0" required="required"></p>
+
+					<p class="txt">$9 - Sirloin tacos <input type="number" min="0" max="10" name = "Sirloin tacos" value="0" required="required"></p>
+					<h3 class="right">Salads</h3>
+					<p class="txt">$13 - Caesar salad <input type="number" min="0" max="10" name = "Caesar salad" value="0" required="required"></p>
+
+					<p class="txt">$10 - Bacon & cheese salad <input type="number" min="0" max="10" name = "Bacon & cheese salad" value="0" required="required"></p>
+
+					<p class="txt">$10 - Shrimp salad <input type="number" min="0" max="10" name = "Shrimp salad" value="0" required="required"></p>
+
+					<p class="txt">$11 - Seafood salad <input type="number" min="0" max="10" name = "Seafood salad" value="0" required="required"></p>
+					<h3 class="right">Desserts</h3>
+					<p class="txt">$7 - Banana Ice cream <input type="number" min="0" max="10" name = "Banana Ice cream" value="0" required="required"></p>
+
+					<p class="txt">$5 - Cheesecase <input type="number" min="0" max="10" name = "Cheesecase" value="0" required="required"></p>
+
+					<p class="txt">$5 - Sweet potatoes <input type="number" min="0" max="10" name = "Sweet potatoes" value="0" required="required"></p>
+
+					<p class="txt">$5 - Strawberry ice cream <input type="number" min="0" max="10" name = "Strawberry ice cream" value="0" required="required"></p>
+
+					<p class="txt">$5 - Brownies <input type="number" min="0" max="10" name = "Brownies" value="0" required="required"></p>
+
+					<h3 class="right">Sides</h3>
+
+					<p class="txt">$7 - Grilled carrots <input type="number" min="0" max="10" name = "Grilled carrots" value="0" required="required"></p>
+
+					<p class="txt">$5 - Mashed potatoes <input type="number" min="0" max="10" name = "Mashed potatoes" value="0" required="required"></p>
+
+					<p class="txt">$5 - Fried sprouts <input type="number" min="0" max="10" name = "Fried sprouts" value="0" required="required"></p>
+				</div>
+
+				<div class="end">
+
+					<h3 class="left">Hard dish</h3>
+
+					<p class="txt1">$24 - Roasted Salmon <input type="number" min="0" max="10" name = "Roasted Salmon" value="0" required="required"></p>
+
+					<p class="txt1">$15 - Grilled Lamb <input type="number" min="0" max="10" name = "Grilled Lamb" value="0" required="required"></p>
+
+					<p class="txt1">$18 - Smoked Chicken <input type="number" min="0" max="10" name = "Smoked Chicken" value="0" required="required"></p>
+
+					<p class="txt1">$20 - Sirloin Burger <input type="number" min="0" max="10" name = "Sirloin Burger" value="0" required="required"></p>
+
+					<p class="txt1">$15 - BBQ Ribs <input type="number" min="0" max="10" name = "BBQ Ribs" value="0" required="required"></p>
+
+					<p class="txt1">$15 - Grilled Pork Loin <input type="number" min="0" max="10" name = "Grilled Pork Loin" value="0" required="required"></p>
+
+					<p class="txt1">$20 - Grilled cheese burger <input type="number" min="0" max="10" name = "Grilled cheese burger" value="0" required="required"></p>
+
+					<p class="txt1">$15 - 500g Steak <input type="number" min="0" max="10" name = "500g Steak" value="0" required="required"></p>
+
+					<h3 class="left">Beer</h3>
+
+					<p class="txt1">$4 - Newcastle brown ale <input type="number" min="0" max="10" name = "Newcastle brown ale" value="0" required="required"></p>
+
+					<p class="txt1">$5 - Hobgoblin ale <input type="number" min="0" max="10" name = "Hobgoblin ale" value="0" required="required"></p>
+
+					<p class="txt1">$6 - Duvel <input type="number" min="0" max="10" name = "Duvel" value="0" required="required"></p>
+
+					<p class="txt1">$5 - La Chouffe <input type="number" min="0" max="10" name = "La Chouffe" value="0" required="required"></p>
+
+					<p class="txt1">$5 - Stella Artois <input type="number" min="0" max="10" name = "Stella Artois" value="0" required="required"></p>
+
+					<h3 class="left">Wine</h3>
+
+					<p class="txt1">$7 - Fancy pants <input type="number" min="0" max="10" name = "Fancy pants" value="0" required="required"></p>
+
+					<p class="txt1">$8 - Ohh La La <input type="number" min="0" max="10" name = "Ohh La La" value="0" required="required"></p>
+
+					<p class="txt1">$10 - Thorny Rose <input type="number" min="0" max="10" name = "Thorny Rose" value="0" required="required"></p>
+				</div>
+		</div>
+				<div class="wrapper">
+       			<button id="but">Book a table</button>
+				</div>
+       		</form>
+			<script src = '{% static "mysite/js/jscripts.js" %}'></script>
+		</div>
+	</main>
+	<footer class="footer">
+		<div class="f1">
+			<div class="premier">
+				<h3 class="links"><strong>ABOUT SPACIAL</strong></h3>
+				<a href="" class="links"><p>Home Pages</p></a>
+				<a href="" class="links"><p>Theme Features</p></a>
+				<a href="" class="links"><p>Services</p></a>
+				<a href="" class="links"><p>StoreFront</p></a>
+				<a href="" class="links"><p>Portfolio</p></a>
+			</div>
+			<div class="deuxieme">
+				<h3 class="links"><strong>CONNECT WITH US</strong></h3>
+				<a href="" class="links"><img src='{% static "mysite/images/instagram.png" %}' class="media"> Instagram<p></p></a>
+				<a href="" class="links"><img src='{% static "mysite/images/twitter.png" %}' class="media"> Twitter<p></p></a>
+				<a href="" class="links"><img src='{% static "mysite/images/dribble.png" %}' class="media"> Dribble<p></p></a>
+				<a href="" class="links"><img src='{% static "mysite/images/facebook.png" %}' class="media"> Facebook<p></p></a>
+			</div>
+			<div class="troisieme">
+				<h3 class="links"><strong>GET AWESOME UPDATES</strong></h3>
+				<p class="links">Enter your email address for news and product launches in the Awesome Space.</p>
+				
+				<form class="newsletter-form" autocomplete="off" novalidate="true">
+       	     <input type="email" id="mc-email" class="form-control" placeholder="Email address" required="" name="EMAIL">
+
+         	   <button type="submit">
+        	      <i class="fa fa-chevron-right"></i>
+          	  </button>
+        	    <label for="mc-email" class="text-white newsletter-feedback mt-3"></label>
+     	   	    </form>
+      		</div>
+      	</div>
+      		<div class="bottom">
+      		<hr class="line">
+          		<span><a href="#" class="vidstup">Privacy</a></span>
+          		<span><a href="#" class="vidstup">Legal</a></span>
+          		<span><a href="#" class="vidstup">Language</a></span>
+      		</div>
+			</footer>
+</body>	
+</html>
